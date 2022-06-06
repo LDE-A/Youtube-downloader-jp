@@ -5,6 +5,7 @@ pythonのインストール ➡ https://www.python.org/downloads/
 pythonのインストールが完了したらwindowsキー+Rでcmd起動して「py -m pip install pytube」と「py -m pip install moviepy」でpytubeとmoviepyをインストール  
 (pipコマンドからやってもらってもok)  
 そしたらdownloader.pyを実行して指示に従えばおk  
+**pytubeのエラーが出たらpytube_bugFix.pyを実行してください**
   
   
 プレビュー    
