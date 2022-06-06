@@ -1,4 +1,4 @@
-# Youtubeﾀﾞｳﾝﾛｰﾀﾞ  
+# Youtubeﾀﾞｳﾝﾛｰﾀﾞ(GUI)  
 使い方  
 pythonとpytubeとmoviepyインストールしてこのファイル実行
 pythonのインストール ➡ https://www.python.org/downloads/  
