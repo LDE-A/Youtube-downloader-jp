@@ -6,5 +6,5 @@ pythonのインストールが完了したらwindowsキー+Rでcmd起動して�
 (pipコマンドからやってもらってもok)  
 そしたらdownloader.pyを実行して指示に従えばおk  
   
-こんな感じ↓
+こんな感じ↓  
 ![img](https://media.discordapp.net/attachments/703506191472394251/983379614527275048/unknown.png)
