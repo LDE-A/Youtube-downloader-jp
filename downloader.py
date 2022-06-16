@@ -118,11 +118,12 @@ def sanshou():
 def simpleDL(vid,i):
     dlPath = f"C:/Users/{username}/Downloads" if dlPath_box.get() == "" else dlPath_box.get()
     ext = extBLN.get()
-    if ext == True:
+    if ext == False:
         vid.streams.filter(progressive=True,file_extension="mp4").first().download(output_path=dlPath)
     else:
         vid.streams.filter(only_audio=True)[0].download(output_path=dlPath)
-        os.rename(f"{dlPath}/{vid.title}.mp4",f"{dlPath}/{vid.title}.mp3")
+        title = vid.title.translate(str.maketrans("","",r'\\/:*?"<>|.~#;\','))
+        os.rename(f"{dlPath}/{title}.mp4",f"{dlPath}/{title}.mp3")
     app.title(f"{title}{i}個のダウンロード完了")
     print(f"{vid.title}  のダウンロード完了")
     
@@ -140,11 +141,12 @@ def single_download():
         currentDL.place(x=10,y=110)
         ext = extBLN.get()
         dlPath = f"C:/Users/{username}/Downloads" if dlPath_box.get() == "" else dlPath_box.get()
-        if ext == True:
+        if ext == False:
             vid.streams.filter(progressive=True,file_extension="mp4").first().download(output_path=dlPath)
         else:
             vid.streams.filter(only_audio=True)[0].download(output_path=dlPath)
-            os.rename(f"{dlPath}/{vid.title}.mp4",f"{dlPath}/{vid.title}.mp3")
+            title = vid.title.translate(str.maketrans("","",r'\\/:*?"<>|.~#;\','))
+            os.rename(f"{dlPath}/{title}.mp4",f"{dlPath}/{title}.mp3")
         quit_ask()
     else:
         error("url")
@@ -164,11 +166,12 @@ def channel_bulk_download():
         ext = extBLN.get()
         dlPath = f"C:/Users/{username}/Downloads" if dlPath_box.get() == "" else dlPath_box.get()
         for i,vid in enumerate(chan.videos,1):
-            if ext == True:
+            if ext == False:
                 vid.streams.filter(progressive=True,file_extension="mp4").first().download(output_path=dlPath)
             else:
                 vid.streams.filter(only_audio=True)[0].download(output_path=dlPath)
-                os.rename(f"{dlPath}/{vid.title}.mp4",f"{dlPath}/{vid.title}.mp3")
+                title = vid.title.translate(str.maketrans("","",r'\\/:*?"<>|.~#;\','))
+                os.rename(f"{dlPath}/{title}.mp4",f"{dlPath}/{title}.mp3")
             print(f"{vid.title}  のダウンロード完了")
             app.title(f"{title}{i}個のダウンロード完了")
         quit_ask()
@@ -191,11 +194,12 @@ def channel_tango_download():
         dlPath = f"C:/Users/{username}/Downloads" if dlPath_box.get() == "" else dlPath_box.get()
         for i,vid in enumerate(chan.videos,1):
             if word in vid.title:
-                if ext == True:
+                if ext == False:
                     vid.streams.filter(progressive=True,file_extension="mp4").first().download(output_path=dlPath)
                 else:
                     vid.streams.filter(only_audio=True)[0].download(output_path=dlPath)
-                    os.rename(f"{dlPath}/{vid.title}.mp4",f"{dlPath}/{vid.title}.mp3")
+                    title = vid.title.translate(str.maketrans("","",r'\\/:*?"<>|.~#;\','))
+                    os.rename(f"{dlPath}/{title}.mp4",f"{dlPath}/{title}.mp3")
                 print(f"{vid.title}  のダウンロード完了")
                 app.title(f"{title}{i}個のダウンロード完了")
             else:
