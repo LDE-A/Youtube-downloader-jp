@@ -135,7 +135,7 @@ def single_download():
     url = url_box.get()
     if url.startswith("https://youtu.be/") or url.startswith("https://www.youtube.com/watch?v="):
         vid = YouTube(url)
-        publishDay = vid.publish_date.split(" ")[0]
+        publishDay = str(vid.publish_date).split(" ")[0]
         currentDL = tkinter.Label(text=f"タイトル「{vid.title}\n投稿者:{vid.author}  視聴回数:{vid.views}  投稿日:{publishDay}",background="silver")
         currentDL.place(x=10,y=110)
         ext = extBLN.get()
@@ -223,7 +223,7 @@ def hiduke_download():
         if "/" in hiduke and hiduke_count == 10:
             if hiduke_BA == "当日":
                 for i,vid in enumerate(chan.videos,1):
-                    vid_day = vid.publish_date.replace("/","")
+                    vid_day = str(vid.publish_date).replace("/","")
                     if cut_hiduke == vid_day:
                         simpleDL(vid,i)
                     else:
